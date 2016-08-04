@@ -1,0 +1,226 @@
+@import 'bourbon/bourbon';
+@import 'neat/neat';
+@import 'base/base';
+
+@import '../../../bower_components/font-awesome/scss/font-awesome';
+
+@import 'variables.scss';
+@import 'skillbar.scss';
+
+$mobile: new-breakpoint(max-width 800px 6);
+
+main {
+	@include outer-container(75%);
+	$border-box-sizing: true !default; 
+	//border: 1px solid #ccc;
+	//border-image: linear-gradient(to top, #ccc, rgba(0, 0, 0, 0)) 1 100%;
+	font-family: $helvetica;
+	display: table;
+
+	@include media($mobile) {
+		@include outer-container();
+         @include span-columns(6); 
+      }
+}
+
+main:after, main:before{
+  display:table-cell;
+  position:relative;
+  //left:-200px;
+  width:1px;
+  content:"";
+  background: radial-gradient(ellipse at 130% 50%,  #ccc 0, rgba(0, 0, 0, 0) 80%); /* W3C */
+}
+
+
+h1 {
+	font-size: 1.5em;
+}
+
+h2 {
+	font-size: 1.2em;
+}
+
+h3 {
+	font-size: 1.0em;
+}
+
+h4 {
+	font-size: 0.8em;
+}
+
+header {
+	text-align: center;
+
+	h1 {
+		@include margin(null null 0.2em null);
+	}
+
+	span {
+		@include fill-parent;
+		font-size: 0.9em;
+		 @include row();
+	}
+}
+
+section {
+	text-align: justify;
+	@include pad(10px default 10px default);
+	@include margin(5px 0 5px 0);
+
+	p {
+		font-size: 0.80em;
+	}
+}
+
+.padding-bottom {
+	@include pad(0 0 10px 0);
+}
+
+#introduction {
+		@include margin(0 5px 0 5px);
+		border-bottom: 1px solid $brand-primary;
+}
+
+
+summary::-webkit-details-marker {
+    color: lightgray;
+}
+
+summary:focus {
+	outline: none;
+}
+
+details {
+	@include margin(0 0 15px 0);
+}
+
+.fa {
+	color: $brand-primary;
+}
+
+.left-content, .right-content {
+  @include span-columns(6);
+
+  h2 {
+  	text-decoration: underline;
+  }
+
+  @include media($mobile) {
+         @include span-columns(6); 
+      }
+
+  article { 
+  	@include span-columns(12); 
+  	@include margin(0 0 0 10px);
+
+  	 @include media($mobile) {
+         @include span-columns(6); 
+         @include margin(0 0 0 0);
+
+      }
+
+  	.indicator-text {
+		//@include span-columns(1 of 2);
+		font-size: 0.8em;
+		color: $brand-primary;
+		font-weight: bold;
+  	}
+
+  	.work-period {
+  		float: left;
+  		border-left: 20px solid $brand-primary;
+  		@include pad(0 0 0 1%);
+  	}
+
+  	.work-city {
+  		text-align: right;
+  	}
+
+  	.work-title {
+		@include margin(0 0 0 0);
+		//border-left: 20px solid $brand-primary;
+		//@include pad(0 0 0 1%);
+  	}
+
+  	.work-company {
+  		//border-left: 20px solid $brand-primary;
+  		//@include pad(0 0 0 1%);
+  	}
+
+  	ul {
+  		clear: both;
+  		list-style-type: disc;
+  		margin-bottom: .75em;
+    	padding-left: 1.0em;
+
+    	li {
+    		font-size: 0.8em;
+    	}
+  	}
+
+  }
+}
+
+.skills-scale {
+		@include span-columns(2 of 8); 
+		font-weight: bold;
+		//float: left;
+	}
+
+.skills-scale-section {
+	    @include shift(3 of 8);
+}
+
+.skills-section {
+
+	aside {
+		@include span-columns(3 of 8); 
+		font-size: 0.8em;
+		font-weight: bold; 
+		text-align: left;
+	}
+
+	span.subsection {
+		font-size: 0.5em;
+		text-align: left;
+		@include span-columns(8 of 8); 
+		color: $brand-primary;
+	}
+
+	.skills-bar-100 {
+		@include span-columns(4.2 of 8); 
+	}
+
+	.skills-bar-90 {
+		@include span-columns(3.8 of 8); 
+	}
+
+	.skills-bar-80 {
+		@include span-columns(3.4 of 8); 
+	}
+
+	.skills-bar-70 {
+		@include span-columns(2.9 of 8); 
+	}
+
+	.skills-bar-60 {
+		@include span-columns(2.7 of 8); 
+	}
+
+}
+
+.education-section {
+	.education-period {
+		border-left: 20px solid $brand-primary;
+  		@include pad(0 0 0 1%);
+	}
+
+	.education-title {
+		@include margin(0 0 0 0);
+	}
+}
+
+#achievements li {
+	font-style: italic;
+}

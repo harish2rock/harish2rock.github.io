@@ -1,0 +1,12 @@
+{
+  "name": "build-project",
+  "version": "0.1.0",
+  "dependencies": {
+    "jquery": "1.9.1",
+    "handlebars": "3.0.2",
+    "jquery-validate": "",
+    "font-awesome": "4.5.0",
+    "tota11y": ""
+   },
+  "private": true
+}

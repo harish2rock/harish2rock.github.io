@@ -1,0 +1,28 @@
+.skills-section {
+  clear: both;
+  height: 50px;
+  
+}
+
+.skills-bar {
+  //background-color: $brand-primary;
+  max-width: 75%;
+  //height: 25px;
+  border: 10px solid $brand-primary;
+  //margin-bottom: 15px;
+
+}
+
+// @media screen and (min-width: 500px) {
+//   .progress-bar span {
+//     font-size: 16px;
+//   }
+// }
+
+// @media only screen and (min-width: $desktop) {
+//   .progress-bar,
+//   .progress-bar span {
+//     line-height: 84px;
+//     max-height: 84px;
+//   }
+// }
