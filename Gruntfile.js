@@ -26,7 +26,7 @@ module.exports = function(grunt) {
  
     config: {
       src: 'src',
-      resume: 'resume'
+      dist: 'dist'
     },
  
     watch: {
@@ -46,10 +46,10 @@ module.exports = function(grunt) {
       },
       sass: {
         files: ['<%= config.src %>/assets/styles/**/*.scss'],
-        tasks: ['sass:resume', 'autoprefixer:main']
+        tasks: ['sass:dist', 'autoprefixer:main']
       },
       scripts: {
-        files: ['<%= config.src %>/assets/scripts/*.js','<%= config.src %>/assets/scripts/{,*/}*/{,*/}*.js', '<%= config.resume %>/assets/scripts/*.js'],
+        files: ['<%= config.src %>/assets/scripts/*.js','<%= config.src %>/assets/scripts/{,*/}*/{,*/}*.js', '<%= config.dist %>/assets/scripts/*.js'],
         tasks: ['neuter:application', 'concat', 'copy:js'],
         options: {
           spawn: false,
@@ -63,10 +63,10 @@ module.exports = function(grunt) {
           livereload: '<%= connect.options.livereload %>'
         },
         files: [
-          '<%= config.resume %>/{,*/}*.html',
-          '<%= config.resume %>/assets/{,*/}*.css',
-          '<%= config.resume %>/assets/{,*/}*.js',
-          '<%= config.resume %>/assets/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
+          '<%= config.dist %>/{,*/}*.html',
+          '<%= config.dist %>/assets/{,*/}*.css',
+          '<%= config.dist %>/assets/{,*/}*.js',
+          '<%= config.dist %>/assets/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
         ]
       }
     },
@@ -82,7 +82,7 @@ module.exports = function(grunt) {
         options: {
           open: true,
           base: [
-            '<%= config.resume %>'
+            '<%= config.dist %>'
           ]
         }
       }
@@ -92,14 +92,14 @@ module.exports = function(grunt) {
       pages: {
         options: {
           flatten: true,
-          assets: '<%= config.resume %>/assets',
+          assets: '<%= config.dist %>/assets',
           layout: '<%= config.src %>/templates/layouts/home-layout.hbs',
           data: '<%= config.src %>/data/*.{json,yml}',
           helpers: ['<%= config.src %>/assets/scripts/template_helpers.js'],
           partials: '<%= config.src %>/templates/partials/{,*/}/{,*/}/{,*/}*.hbs'
         },
         files: {
-          '<%= config.resume %>/': ['<%= config.src %>/templates/pages/*.hbs']
+          '<%= config.dist %>/': ['<%= config.src %>/templates/pages/*.hbs']
         }
       }
     },
@@ -108,14 +108,14 @@ module.exports = function(grunt) {
       pages: {
         options: {
           flatten: true,
-          assets: '<%= config.resume %>/assets',
+          assets: '<%= config.dist %>/assets',
           layout: '<%= config.src %>/templates/layouts/home-layout.hbs',
           data: '<%= config.src %>/data/*.{json,yml}',
           helpers: ['<%= config.src %>/assets/scripts/template_helpers.js'],
           partials: '<%= config.src %>/templates/partials/{,*/}/{,*/}/{,*/}*.hbs'
         },
         files: {
-          '<%= config.resume %>/': ['<%= config.src %>/templates/pages/*.hbs']
+          '<%= config.dist %>/': ['<%= config.src %>/templates/pages/*.hbs']
         }
       }
     },
@@ -125,7 +125,7 @@ module.exports = function(grunt) {
         expand: true,
         cwd: '<%= config.src %>/assets/styles/*.css',
         src: '**',
-        dest: '<%= config.resume %>/assets/styles/',
+        dest: '<%= config.dist %>/assets/styles/',
         flatten: true,
         filter: 'isFile'
       },
@@ -133,7 +133,7 @@ module.exports = function(grunt) {
         expand: true,
         cwd: '<%= config.src %>/assets/scripts/main.js',
         src: '**',
-        dest: '<%= config.resume %>/assets/script/',
+        dest: '<%= config.dist %>/assets/script/',
         flatten: true,
         filter: 'isFile'
       },
@@ -141,7 +141,7 @@ module.exports = function(grunt) {
         expand: true,
         cwd: '<%= config.src %>/assets/images/',
         src: '**',
-        dest: '<%= config.resume %>/assets/images/',
+        dest: '<%= config.dist %>/assets/images/',
         filter: 'isFile',
         flatten: true
       },
@@ -149,7 +149,7 @@ module.exports = function(grunt) {
         expand: true,
         cwd: 'bower_components/jquery/',
         src: 'jquery.min.js',
-        dest: '<%= config.resume %>/assets/scripts/lib/',
+        dest: '<%= config.dist %>/assets/scripts/lib/',
         flatten: true,
         filter: 'isFile'
       },
@@ -157,15 +157,15 @@ module.exports = function(grunt) {
         expand: true,
         cwd: 'bower_components/font-awesome/fonts/',
         src: '*',
-        dest: '<%= config.resume %>/assets/styles/fonts/',
+        dest: '<%= config.dist %>/assets/styles/fonts/',
         flatten: true,
         filter: 'isFile'
       },
       validate: {
         expand: true,
-        cwd: 'bower_components/jquery-validate/resume/',
+        cwd: 'bower_components/jquery-validate/dist/',
         src: 'jquery.validate.min.js',
-        dest: '<%= config.resume %>/assets/scripts/lib/',
+        dest: '<%= config.dist %>/assets/scripts/lib/',
         flatten: true,
         filter: 'isFile'
       },
@@ -173,13 +173,13 @@ module.exports = function(grunt) {
         expand: true,
         cwd: 'bower_components/handlebars/',
         src: 'handlebars.min.js',
-        dest: '<%= config.resume %>/assets/scripts/lib/',
+        dest: '<%= config.dist %>/assets/scripts/lib/',
         flatten: true,
         filter: 'isFile'
       }
     },
     sass: { // Task
-      resume: { // Target
+      dist: { // Target
  
         files: { // Dictionary of files
           "<%= config.src %>/assets/styles/main.css": "<%= config.src %>/assets/styles/main.scss"
@@ -192,7 +192,7 @@ module.exports = function(grunt) {
       },
       application: {
         src: '<%= config.src %>/assets/scripts/main.js',
-        dest: '<%= config.resume %>/assets/scripts/main.js'
+        dest: '<%= config.dist %>/assets/scripts/main.js'
       }
     },
  
@@ -210,23 +210,23 @@ module.exports = function(grunt) {
       }
     },
 //    uncss: {
-//      resume: {
+//      dist: {
 //        options: {
 //          ignore: ['[class*=" icon-"]:before, [class^=icon-]:before, [data-icon]:before, .dataTables_wrapper']
 //                    //ignoreSheets: [/fonts.googleapis/],
 //        },
 //        files: {
-//          '<%= config.resume %>/assets/styles/main.css': ['<%= config.resume %>/*.html']
+//          '<%= config.dist %>/assets/styles/main.css': ['<%= config.dist %>/*.html']
 //        }
 //      }
 //    },
     concat: {
  
-      resume: {
+      dist: {
         files: {
-          '<%= config.resume %>/assets/scripts/lib.js': ['<%= config.resume %>/assets/scripts/lib/jquery.min.js',
-                                                       '<%= config.resume %>/assets/scripts/lib/jquery.validate.min.js',
-                                                       '<%= config.resume %>/assets/scripts/lib/handlebars.min.js']
+          '<%= config.dist %>/assets/scripts/lib.js': ['<%= config.dist %>/assets/scripts/lib/jquery.min.js',
+                                                       '<%= config.dist %>/assets/scripts/lib/jquery.validate.min.js',
+                                                       '<%= config.dist %>/assets/scripts/lib/handlebars.min.js']
         }
       }
     },
@@ -259,11 +259,11 @@ module.exports = function(grunt) {
         expand: true,
         flatten: true,
         src: '<%= config.src %>/assets/styles/main.css',
-        dest: '<%= config.resume %>/assets/styles/'
+        dest: '<%= config.dist %>/assets/styles/'
     }
     },
  
-    clean: ['<%= config.resume %>/**/*.{html,xml}']
+    clean: ['<%= config.dist %>/**/*.{html,xml}']
  
   });
  
