@@ -23,7 +23,6 @@ main {
       }
 }
 
-
 main:after, main:before{
   display:table-cell;
   position:relative;
@@ -187,6 +186,11 @@ details {
 		text-align: left;
 		@include span-columns(8 of 8); 
 		color: $brand-primary;
+
+		@include media($mobile) {
+			//@include outer-container();
+         	@include span-columns(3 of 8); 
+      	}
 	}
 
 	.skills-bar-100 {
@@ -224,4 +228,84 @@ details {
 
 #achievements li {
 	font-style: italic;
+}
+
+@media print {
+	main {
+		@include outer-container(100%);
+	}
+
+	#introduction {
+		margin: 0 2px;
+	}
+
+	span[itemprop="connect"] {
+		display: none;
+	}
+
+	section {
+		p {
+			font-size: 10px;
+		}
+
+		text-align: left;
+		padding: 0;
+	}
+
+	h1 {
+	font-size: 1.0em;
+}
+
+h2 {
+	font-size: 0.8em;
+}
+
+h3 {
+	font-size: 0.6em;
+}
+
+h4 {
+	font-size: 0.4em;
+}
+
+.left-content, .right-content {
+	
+	
+
+	article { 
+		.indicator-text {
+			font-size: 8px;
+		}
+
+		ul li {
+			font-size: 8px;
+		}
+
+		.work-title {
+			font-size: 10px;
+		}
+
+		.work-company {
+			font-size: 8px;
+		}
+
+		.work-period {
+			border-left: 10px solid #f15d50;
+		}
+	}
+}	
+
+.skills-section { 
+	aside {
+		font-size: 10px;
+	}
+	span.subsection {
+		width: 35%;
+	}
+}
+
+.interest {
+	font-size: 10px;
+	text-align: left;
+}
 }
