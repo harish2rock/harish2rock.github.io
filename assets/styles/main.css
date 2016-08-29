@@ -2435,6 +2435,14 @@ details {
   color: #f15d50; }
   .skills-section span.subsection:last-child {
     margin-right: 0; }
+  @media screen and (max-width: 800px) {
+    .skills-section span.subsection {
+      float: left;
+      display: block;
+      margin-right: 3.57866%;
+      width: 35.26334%; }
+      .skills-section span.subsection:last-child {
+        margin-right: 0; } }
 .skills-section .skills-bar-100 {
   float: left;
   display: block;
@@ -2479,5 +2487,59 @@ details {
 
 #achievements li {
   font-style: italic; }
+
+@media print {
+  main {
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto; }
+    main::after {
+      clear: both;
+      content: "";
+      display: table; }
+
+  #introduction {
+    margin: 0 2px; }
+
+  span[itemprop="connect"] {
+    display: none; }
+
+  section {
+    text-align: left;
+    padding: 0; }
+    section p {
+      font-size: 10px; }
+
+  h1 {
+    font-size: 1.0em; }
+
+  h2 {
+    font-size: 0.8em; }
+
+  h3 {
+    font-size: 0.6em; }
+
+  h4 {
+    font-size: 0.4em; }
+
+  .left-content article .indicator-text, .right-content article .indicator-text {
+    font-size: 8px; }
+  .left-content article ul li, .right-content article ul li {
+    font-size: 8px; }
+  .left-content article .work-title, .right-content article .work-title {
+    font-size: 10px; }
+  .left-content article .work-company, .right-content article .work-company {
+    font-size: 8px; }
+  .left-content article .work-period, .right-content article .work-period {
+    border-left: 10px solid #f15d50; }
+
+  .skills-section aside {
+    font-size: 10px; }
+  .skills-section span.subsection {
+    width: 35%; }
+
+  .interest {
+    font-size: 10px;
+    text-align: left; } }
 
 /*# sourceMappingURL=main.css.map */
