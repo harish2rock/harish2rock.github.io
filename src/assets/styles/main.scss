@@ -162,6 +162,11 @@ details {
   }
 }
 
+span[itemprop="contact"] {
+		display: none;
+		font-size: 0.8em;
+	}
+
 .skills-scale {
 		@include span-columns(2 of 8); 
 		font-weight: bold;
@@ -241,6 +246,10 @@ details {
 
 	span[itemprop="connect"] {
 		display: none;
+	}
+
+	span[itemprop="contact"] {
+		display: block;
 	}
 
 	section {
